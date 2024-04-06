@@ -24,24 +24,21 @@
    <body>
       <div class="hero_area">
          <!-- header section strats -->
-         @include('home.header')
          <!-- end header section -->
          <!-- slider section -->
         
-         @include('home.slider')
 
       <!-- product section -->
       @include('home.product')
 
      
       <!-- footer start -->
-      @include('home.footer')
 
       <!-- footer end -->
       <div class="cpy_">
-         <p class="mx-auto">© 2021 All Rights Reserved By <a href="https://html.design/">Free Html Templates</a><br>
+         <p class="mx-auto">© 2021 All Rights Reserved By <a href="https://html.design/">Swinburne AI Guys Templates</a><br>
          
-            Distributed By <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+            Distributed By <a href="https://themewagon.com/" target="_blank">Chatai</a>
          
          </p>
       </div>

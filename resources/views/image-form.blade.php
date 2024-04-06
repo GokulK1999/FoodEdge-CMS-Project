@@ -21,7 +21,7 @@
   <div class="card">
 
     <div class="card-header text-center font-weight-bold">
-      <h2>Laravel 11 Image Upload Example - Tutsmake.com</h2>
+      <h2>Food Image Upload</h2>
     </div>
 
     <div class="card-body">
