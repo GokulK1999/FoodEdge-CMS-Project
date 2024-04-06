@@ -9,7 +9,7 @@ class ImageUploadController extends Controller
 {
     public function index()
     {
-        return view('image-form');
+        return view('image');
     }
 
     public function upload(Request $request)
