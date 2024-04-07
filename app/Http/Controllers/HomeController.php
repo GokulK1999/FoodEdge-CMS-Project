@@ -34,7 +34,7 @@ class HomeController extends Controller
     public function viewmenupage()
     {
 
-        $itemData = Imagestore::limit()->get();
+        $itemData = Imagestore::get();
         $path = storage_path('models/imagestore/');
 
         $data = [

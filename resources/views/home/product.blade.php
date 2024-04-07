@@ -74,7 +74,7 @@
 
       
       <div class="btn-box">
-         <a href="">
+         <a href="view-menu-page">
             View All products
          </a>
       </div>
