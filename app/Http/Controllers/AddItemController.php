@@ -44,5 +44,7 @@ class AddItemController extends Controller
 
         // Redirect back with success message
         return redirect()->back()->with('success', 'Item added successfully!');
+        
     }
+    
 }

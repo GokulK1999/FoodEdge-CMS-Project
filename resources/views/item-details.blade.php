@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Item Details</title>
     <style>
@@ -9,7 +10,7 @@
             margin: 0;
             padding: 0;
         }
-        
+
         .container {
             max-width: 600px;
             margin: 20px auto;
@@ -18,39 +19,45 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         h1 {
             text-align: center;
             color: #333;
         }
-        
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
         }
-        
-        th, td {
+
+        th,
+        td {
             padding: 10px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
-        
+
         th {
             background-color: #f2f2f2;
         }
-        
+
         .value {
             font-weight: bold;
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Item Details</h1>
-    <table>
-        @foreach ($itemData as $key)
+    <div class="container">
+        <h1>Item Details</h1>
+        <table>
+            @foreach ($itemData as $key)
+            <tr>
+                <th>Image</th>
+                <td class="value">{{ $key->Image }}</td>
+            </tr>
             <tr>
                 <th>Food Name</th>
                 <td class="value">{{ $key->FoodName }}</td>
@@ -67,10 +74,11 @@
                 <th>Code</th>
                 <td class="value">{{ $key->Code }}</td>
             </tr>
-      
-        @endforeach
-    </table>
-</div>
+
+            @endforeach
+        </table>
+    </div>
 
 </body>
+
 </html>
