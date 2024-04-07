@@ -10,7 +10,7 @@ class ViewItemDetailsController extends Controller
     public function viewItemDetails()
     {
     
-      $itemData= Imagestore::where("ID",3)->get();
+        $itemData = Imagestore::where('ID',1)->get();
       
      $data=["itemData"=>$itemData];
   

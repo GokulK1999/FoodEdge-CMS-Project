@@ -31,6 +31,5 @@ Route::middleware([
 });
 
 Route::get('/redirect',[HomeController::class,'redirect']);
-Route::get('userpage',[AddItemController::class,'redirect']);
 
 

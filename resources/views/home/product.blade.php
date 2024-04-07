@@ -14,13 +14,13 @@
                <div class="option_container">
                   <div class="options">
                      <a href="add-item" class="option1">
-                        Add To Cart
+                        Edit Item Details
                      </a>
                      <a href="item-details" class="option2">
                         View Item Details
                      </a>
-                     <a href="image-form" class="option3">
-                        Image Upload
+                     <a href="" class="option3">
+                        Buy Now 
                      </a>
                   </div>
                </div>
@@ -47,7 +47,7 @@
                   <img src="images/shinchan.png" alt="">
                </div>
                <div class="detail-box">
-               <a href="add-item" class="option3">
+               <a href="add-item" class="option1">
                         Add New Item
                      </a>
                </div>
