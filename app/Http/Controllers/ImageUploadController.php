@@ -23,7 +23,7 @@ class ImageUploadController extends Controller
         $name = $request->file('image')->getClientOriginalName();
 
         //upload image in public storage folder
-        $path = $request->file('image')->store('public/images');
+        $path = $request->file('image')->store('models/imagestore');
 
         return redirect('image-form')->with('status', 'Image Has been uploaded');
 

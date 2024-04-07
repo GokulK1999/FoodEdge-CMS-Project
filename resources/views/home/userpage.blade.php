@@ -29,7 +29,12 @@
         
 
       <!-- product section -->
-      @include('home.product')
+      @if($route =="Home")
+         @include('home.product')
+      @elseif($route =="Menu")
+       @include('home.view-menu-page')
+      @endif
+      
 
      
       <!-- footer start -->
