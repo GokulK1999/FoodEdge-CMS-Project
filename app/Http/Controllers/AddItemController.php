@@ -12,7 +12,7 @@ class AddItemController extends Controller
 {
     public function additemform()
     {
-        return view('image-form');
+        return view('add-item');
     }
 
     public function addItem(Request $request)
