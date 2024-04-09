@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Imagestore;
+use App\Public\Images;
+
 
 class HomeController extends Controller
 {
@@ -13,7 +15,7 @@ class HomeController extends Controller
     {
 
         $itemData = Imagestore::limit(9)->get();
-        $path = storage_path('models/imagestore/');
+        $path = storage_path('public\images');
 
         $data = [
             "itemData" => $itemData,
@@ -35,7 +37,7 @@ class HomeController extends Controller
     {
 
         $itemData = Imagestore::get();
-        $path = storage_path('models/imagestore/');
+        $path = storage_path('public\images');
 
         $data = [
             "itemData" => $itemData,
@@ -44,4 +46,5 @@ class HomeController extends Controller
         ];
         return view('home.userpage', $data);
     }
+    
 }

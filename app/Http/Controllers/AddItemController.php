@@ -12,7 +12,7 @@ class AddItemController extends Controller
 {
     public function additemform()
     {
-        return view('add-item');
+        return view('image-form');
     }
 
     public function addItem(Request $request)
@@ -29,7 +29,7 @@ class AddItemController extends Controller
 
 
         //upload image in public storage folder
-        $path = $request->file('image')->store('models\imagestore');
+        $path = $request->file('image')->store('public\images');
         $pathname = pathinfo($path)['basename'];
 
 
