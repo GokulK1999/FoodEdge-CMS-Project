@@ -4,7 +4,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Imagestore;
+use App\Models\ItemDetails;
 use Illuminate\Http\Request;
 
 
@@ -34,14 +34,14 @@ class AddItemController extends Controller
 
 
         $itemData = [
-            "FoodName" => $request->food_name,
+            "ItemName" => $request->food_name,
             "Category" => $request->category,
             "Price" => $request->price,
             "Code" => $request->code,
-            "Image" => $pathname,
+            "Photo" => $pathname,
         ];
 
-        Imagestore::insert($itemData);
+        ItemDetails::insert($itemData);
 
         // Redirect back with success message
         return redirect()->back()->with('success', 'Item added successfully!');

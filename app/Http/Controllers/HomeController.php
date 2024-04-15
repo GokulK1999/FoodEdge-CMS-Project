@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\Imagestore;
+use App\Models\ItemDetails;
 use App\Public\Images;
 
 
@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $itemData = Imagestore::limit(9)->get();
+        $itemData = ItemDetails::limit(9)->get();
         $path = storage_path('public\images');
 
         $data = [
@@ -36,12 +36,11 @@ class HomeController extends Controller
     public function viewmenupage()
     {
 
-        $itemData = Imagestore::get();
-        $path = storage_path('public\images');
+        $itemData = ItemDetails::get();
+       
 
         $data = [
             "itemData" => $itemData,
-            "Path" => $path,
             "route"=>"Menu",
         ];
         return view('home.userpage', $data);

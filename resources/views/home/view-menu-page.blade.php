@@ -26,11 +26,11 @@
                     </div>
 
                     <div class="img-box">
-                        <img src="{{$Path.$key->Image}}" alt="">
+                        <img src="storage/images/{{$key->Photo}}" alt="">
                     </div>
                     <div class="detail-box">
                         <h5>
-                            {{$key->FoodName}}
+                            {{$key->ItemName}}
                         </h5>
                         <h6>
                             {{$key->Price}}

@@ -56,11 +56,16 @@
             @foreach ($itemData as $key)
             <tr>
                 <th>Image</th>
-                <td class="value">{{ $key->Image }}</td>
+                <td class="value">
+                    <div class="img-box">
+                        <img src="storage/images/{{$key->Photo}}" alt="">
+                    </div>
+
+                </td>
             </tr>
             <tr>
                 <th>Food Name</th>
-                <td class="value">{{ $key->FoodName }}</td>
+                <td class="value">{{ $key->ItemName }}</td>
             </tr>
             <tr>
                 <th>Category</th>
