@@ -79,9 +79,9 @@
                 <th>Code</th>
                 <td class="value">{{ $key->Code }}</td>
             </tr>
+            @endforeach
             <button type="submit">Submit</button>
             <button type="button" onclick="window.history.back()">Cancel</button>
-            @endforeach
         </table>
     </div>
 
