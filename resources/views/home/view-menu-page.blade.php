@@ -13,7 +13,7 @@
             <div class="box">
                <div class="option_container">
                   <div class="options">
-                     <a href="add-item?id={{$key->ID}}" class="option1">
+                     <a href="edit-item-details?id={{$key->ID}}" class="option1">
                         Edit Item Details
                      </a>
                      <a href="item-details?id={{$key->ID}}" class="option2">
