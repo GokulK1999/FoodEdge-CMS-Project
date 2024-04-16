@@ -26,7 +26,7 @@
                </div>
 
                <div class="img-box">
-                  <img src="storage/images/{{$key->Photo}}" alt="">
+               <img src="storage/images/{{$key->Photo}}" alt="">
                </div>
                <div class="detail-box">
                   <h5>
