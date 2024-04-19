@@ -14,14 +14,14 @@
             </div>
         </div>
         <div class="row mb-3">
-            <div class="col">
+            {{-- <div class="col">
                 <input type="text" name="invoice_number" class="form-control" placeholder="Invoice Number">
             </div>
             <div class="col">
                 <input type="text" name="total_amount" class="form-control" placeholder="Total Amount">
-            </div>
+            </div> --}}
             <div class="col">
-                <input type="text" name="totalPaid" class="form-control" placeholder="Total Paid">
+                <input type="text" name="totalPaid" class="form-control" placeholder="Total Amount">
             </div>
             <div class="col">
                 <textarea class="form-control" name="description" placeholder="Description"></textarea>

@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col mb-3">
                 <label class="form-label">Total Paid</label>
-                <input type="text" name="totalPaid" class="form-control" placeholder="Total Paid" value="{{ $invoice->totalPaid }}" >
+                <input type="text" name="totalPaid" class="form-control" placeholder="Total Amount" value="{{ $invoice->totalPaid }}" >
             </div>
             <div class="col mb-3">
                 <label class="form-label">Description</label>
