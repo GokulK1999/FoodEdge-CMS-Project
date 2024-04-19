@@ -1,38 +1,62 @@
 <?php
 
+use App\Http\Controllers\CateringController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ImageUploadController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ViewItemDetailsController;
-use App\Http\Controllers\AddItemController;
-use App\Http\Controllers\EditItemDetailsController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ReceiptController;
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::get('item-details', [ViewItemDetailsController::class,'viewItemDetails']);
-Route::get('edit-item-details', [EditItemDetailsController::class,'editItemDetails']);
-Route::get('image-form', [ImageUploadController::class, 'index']);
-Route::post('upload', [ImageUploadController::class, 'upload']);
-Route::post('submit-item', [AddItemController::class, 'addItem'])->name('submit.item');
-Route::get('add-item', [AddItemController::class, 'additemform']);
-Route::get('view-menu-page', [HomeController::class, 'viewmenupage']);
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
-
-
-Route::get('/',[HomeController::class,'index']);
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+Route::get('/', function () {
+    return view('welcome');
 });
 
-Route::get('/redirect',[HomeController::class,'redirect']);
+Route::get('/ListingTest', function(){
+    return view('testlistings', [
+        'heading'=> 'Latest Listings',
+        'listings'=> [
+            [
+                'id'=> 0,
+                'title'=> '',
+                'description' => ''
+            ]
+        ]
+    ]);
+});
+
+// Define routes for handling invoices
+
+//Route for invoices
+Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoice.index');
+Route::get('/invoices/create', [InvoiceController::class, 'create'])->name('invoice.create');
+//Route::post('/invoices', [InvoiceController::class, 'store'])->name('invoices.store');
+//Route::get('/invoices/{id}', [InvoiceController::class, 'index'])->name('invoices.index');
+Route::get('/invoices/{id}', [InvoiceController::class, 'show'])->name('invoice.show');
+Route::get('/invoices/{id}/edit', [InvoiceController::class, 'edit'])->name('invoice.edit');
+Route::put('/invoices/{id}', [InvoiceController::class, 'update'])->name('invoice.update');
+Route::delete('/invoices/{id}', [InvoiceController::class, 'destroy'])->name('invoice.destroy');
+//must define the destroy method here or the button will no work, this is the url link wth function ability
+Route::post('/invoices', [InvoiceController::class, 'store'])->name('invoice.store');
+
+Route::get('/users/', function()
+{
+    return view('invoicesindex');
+});
+
+//Route::get('/receipt', [ReceiptController::class, 'index'])->name('/receipt/index');
 
 
+
+//
+
+Route::get('/catering', [CateringController::class, 'index']); //index is the function in CateringController
