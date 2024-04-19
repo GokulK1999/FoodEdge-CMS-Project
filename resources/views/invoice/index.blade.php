@@ -12,11 +12,11 @@
         </div>
     @endif
     <table class="table table-hover">
-        <thead class="table-primary">
+        <thead class="table-success">
             <tr>
                 <th>#</th>
-                <th>Name</th>
-                <th>Item</th>
+                <th>Invoice Number</th>
+                <th>Total Amount</th>
                 <th>Total Paid</th>
                 <th>Description</th>
                 <th>Paid</th>
@@ -29,11 +29,11 @@
                 @foreach($invoice as $invoice)
                     <tr>
                         <td class="align-middle">{{ $loop->iteration }}</td>
-                        <td class="align-middle">{{ $invoice->name }}</td>
-                        <td class="align-middle">{{ $invoice->item }}</td>
+                        <td class="align-middle">{{ $invoice->invoice_number}}</td>
+                        <td class="align-middle">{{ $invoice->total_amount }}</td>
                         <td class="align-middle">{{ $invoice->totalPaid }}</td>
                         <td class="align-middle">{{ $invoice->description }}</td>
-                        <td class="align-middle">{{ $invoice->paid ? 'Yes' : 'No' }}</td>
+                        <td class="align-middle">{{ $invoice->status ? 'Yes' : 'No' }}</td>
                         <td class="align-middle">
                             <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
                                 <a href="{{ route('invoice.show', $invoice->id) }}" type="button" class="btn btn-outline-primary">Details</a>

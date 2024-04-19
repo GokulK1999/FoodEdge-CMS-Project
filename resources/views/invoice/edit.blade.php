@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('body')
-    <h1 class="mb-0">Edit invoice</h1>
+    <h1 class="mb-0">Edit Invoice</h1>
     <hr />
     <form action="{{ route('invoice.update', $invoice->id) }}" method="POST">
         @csrf
