@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CateringModel extends Model
 {
     use HasFactory;
-    protected $table = 'caterings'; // Specify the table name if it differs
+    //protected $table = 'caterings'; // Specify the table name if it differs
     protected $fillable = [
         'food_menu', // Food menu details in JSON format
         'venue',
@@ -20,7 +20,6 @@ class CateringModel extends Model
 
     public function invoice()
     {
-        return $this->belongsTo(InvoiceModel::class, 'invoice_id');
+        return $this->hasOne(InvoiceModel::class, 'invoice_id');
     }
-//
 }

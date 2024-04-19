@@ -101,6 +101,17 @@ class InvoiceController extends Controller
 
         return redirect()->route('invoice.index')->with('success', 'Invoice deleted successfully');
     }
+
+    public function pay(string $id)
+    {
+        $invoice = InvoiceModel::findOrFail($id);
+
+        $invoice->update(['status' => true]);
+
+        return redirect()->route('invoice.index', $invoice->id)->with('success', 'Invoice paid successfully');
+    }
+
+
 }
 
 

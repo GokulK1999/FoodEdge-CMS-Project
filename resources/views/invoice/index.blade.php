@@ -22,6 +22,7 @@
                 <th>Paid</th>
                 <th>Action</th>
                 <th>Delete</th>
+                <th>Pay</th>
             </tr>
         </thead>
         <tbody>
@@ -47,6 +48,12 @@
                                 <button class="btn btn-outline-danger">Delete</button>
                             </form>
                         </td>
+                        <td class="align-middle">
+                            <form action="{{ route('invoice.pay', $invoice->id) }}" method="POST" type="button" class="btn btn-outline-danger p-0">
+                              @csrf
+                              @method('POST')  <button class="btn btn-outline-danger">Pay</button>
+                            </form>
+                          </td>
                     </tr>
                 @endforeach
             @else
