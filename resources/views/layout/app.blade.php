@@ -9,7 +9,7 @@
 <body>
     @include('layout.navbar')
 
-    <div class="container py-5">
+    <div class="container py-5 p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
         @yield('body')
     </div>
 

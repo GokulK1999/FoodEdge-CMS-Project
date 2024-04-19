@@ -3,7 +3,7 @@
 @section('body')
     <div class="d-flex align-items-center justify-content-between">
         <h1 class="mb-0">List Invoices</h1>
-        <a href="{{ route('invoice.create') }}" class="btn btn-primary">Add Receipt</a>
+        <a href="{{ route('invoice.create') }}" class="btn btn-secondary">Add Invoice</a>
     </div>
     <hr />
     @if(Session::has('success'))
@@ -21,6 +21,7 @@
                 <th>Description</th>
                 <th>Paid</th>
                 <th>Action</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -34,15 +35,17 @@
                         <td class="align-middle">{{ $invoice->description }}</td>
                         <td class="align-middle">{{ $invoice->paid ? 'Yes' : 'No' }}</td>
                         <td class="align-middle">
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <a href="{{ route('invoice.show', $invoice->id) }}" type="button" class="btn btn-secondary">Detail</a>
-                                <a href="{{ route('invoice.edit', $invoice->id) }}" type="button" class="btn btn-warning">Edit</a>
-                                <form action="{{ route('invoice.destroy', $invoice->id) }}" method="POST" type="button" class="btn btn-danger p-0" onsubmit="return confirm('Delete?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger m-0">Delete</button>
-                                </form>
+                            <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+                                <a href="{{ route('invoice.show', $invoice->id) }}" type="button" class="btn btn-outline-primary">Details</a>
+                                <a href="{{ route('invoice.edit', $invoice->id) }}" type="button" class="btn btn-outline-secondary">Edit</a>
                             </div>
+                        </td>
+                        <td class="align-middle">
+                            <form action="{{ route('invoice.destroy', $invoice->id) }}" method="POST" type="button" class="btn btn-outline-danger p-0" onsubmit="return confirm('Delete?')">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-outline-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
