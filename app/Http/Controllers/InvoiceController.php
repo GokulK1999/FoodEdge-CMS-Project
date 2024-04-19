@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\InvoiceModel;
 use Illuminate\Http\Request;
+use App\Models\Receipt;
 
 class InvoiceController extends Controller
 {
@@ -107,6 +108,19 @@ class InvoiceController extends Controller
         $invoice = InvoiceModel::findOrFail($id);
 
         $invoice->update(['status' => true]);
+
+        $receiptData = [
+            'name' => $invoice->name, // Or relevant name for the receipt
+            'item' => $invoice->item, // Or a description of the purchase
+            'totalPaid' => $invoice->totalPaid,
+            'description' => $invoice->description, // Optional: Add invoice description
+            //'invoice_id' => $invoice->id, // Include invoice ID if using foreign key
+            'status' => true,
+        ];
+
+        // Create a new receipt record (replace with your logic for saving)
+        $receipt = new Receipt();
+        $receipt = Receipt::create($receiptData);
 
         return redirect()->route('invoice.index', $invoice->id)->with('success', 'Invoice paid successfully');
     }

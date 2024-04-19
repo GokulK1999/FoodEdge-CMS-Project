@@ -49,11 +49,11 @@
                             </form>
                         </td>
                         <td class="align-middle">
-                            <form action="{{ route('invoice.pay', $invoice->id) }}" method="POST" type="button" class="btn btn-outline-danger p-0">
+                            <form action="{{ route('invoice.pay', $invoice->id) }}" method="POST" type="button" class="btn btn-outline-warning p-0">
                               @csrf
-                              @method('POST')  <button class="btn btn-outline-danger">Pay</button>
+                              @method('POST')  <button class="btn btn-outline-primary @if($invoice->status) disabled @endif">Pay</button>
                             </form>
-                          </td>
+                        </td>
                     </tr>
                 @endforeach
             @else

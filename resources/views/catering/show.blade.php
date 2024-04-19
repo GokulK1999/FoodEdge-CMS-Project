@@ -1,11 +1,11 @@
 @extends('layout.app')
 
 @section('body')
-    <h1 class="mb-0">Invoice Details</h1>
+    <h1 class="mb-0">invoice Details</h1>
     <hr />
 
     <!-- Wrap the receipt details content with the div element -->
-    <div id="invoiceDetails">
+    <div id="receiptDetails">
         <div class="row">
             <div class="col mb-3">
                 <label class="form-label">Name</label>
@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col mb-3">
                 <label class="form-label">Total Paid</label>
-                <input type="text" name="totalPaid" class="form-control" placeholder="Total Amount" value="{{ $invoice->totalPaid }}" readonly>
+                <input type="text" name="totalPaid" class="form-control" placeholder="Total Paid" value="{{ $invoice->totalPaid }}" readonly>
             </div>
             <div class="col mb-3">
                 <label class="form-label">Description</label>
@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col mb-3">
                 <label class="form-label">Paid</label>
-                <input type="text" name="paid" class="form-control" placeholder="Paid" value="{{ $invoice->status ? 'Yes' : 'No' }}" readonly>
+                <input type="text" name="paid" class="form-control" placeholder="Paid" value="{{ $invoice->paid ? 'Yes' : 'No' }}" readonly>
             </div>
             <div class="col mb-3">
                 <label class="form-label">Created At</label>
@@ -50,8 +50,8 @@
 
     <script>
         document.getElementById('printButton').addEventListener('click', function() {
-
-            const invoiceDetails = document.getElementById('invoiceDetails');
+            // Get the receipt details section
+            const invoiceDetails = document.getElementById('receiptDetails');
 
             // Use html2pdf to convert HTML to PDF
             html2pdf().from(invoiceDetails).save();

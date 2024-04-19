@@ -33,10 +33,15 @@ Route::get('/ListingTest', function(){
         ]
     ]);
 });
-
+//temp below can delete
+Route::get('/users/', function()
+{
+    return view('invoicesindex');
+});
 // Define routes for handling invoices
 
 //Route for invoices
+Route::post('/invoices/{invoice}/pay', [InvoiceController::class, 'pay'])->name('invoice.pay');
 Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoice.index');
 Route::get('/invoices/create', [InvoiceController::class, 'create'])->name('invoice.create');
 //Route::post('/invoices', [InvoiceController::class, 'store'])->name('invoices.store');
@@ -48,15 +53,16 @@ Route::delete('/invoices/{id}', [InvoiceController::class, 'destroy'])->name('in
 //must define the destroy method here or the button will no work, this is the url link wth function ability
 Route::post('/invoices', [InvoiceController::class, 'store'])->name('invoice.store');
 
-Route::get('/users/', function()
-{
-    return view('invoicesindex');
-});
-
-//Route::get('/receipt', [ReceiptController::class, 'index'])->name('/receipt/index');
 
 
-
+//Routes for receipts
+Route::get('/receipts', [ReceiptController::class, 'index'])->name('receipt.index');
+Route::get('/receipts/create', [ReceiptController::class, 'create'])->name('receipt.create');
+Route::get('/receipts/{id}', [ReceiptController::class, 'show'])->name('receipt.show');
+Route::get('/receipts/{id}/edit', [ReceiptController::class, 'edit'])->name('receipt.edit');
+Route::put('/receipts/{id}', [ReceiptController::class, 'update'])->name('receipt.update');
+Route::delete('/receipts/{id}', [ReceiptController::class, 'destroy'])->name('receipt.destroy');
+Route::post('/receipts', [ReceiptController::class, 'store'])->name('receipt.store');
 //
 
 Route::get('/catering', [CateringController::class, 'index']); //index is the function in CateringController
