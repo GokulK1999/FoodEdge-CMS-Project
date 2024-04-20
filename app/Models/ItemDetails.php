@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ItemDetails extends Model
 {
     protected $table = 'itemdetails';
+    protected $primaryKey = 'ID';
+    protected $fillable = ['ItemName', 'Category', 'Price','Code','Photo'];
 }
