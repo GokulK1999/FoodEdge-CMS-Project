@@ -23,11 +23,9 @@ class EditItemDetailsController extends Controller
     
 
     public function updateItemDetails(Request $request,$id){
-   
-        $itemData = ItemDetails::find ($id)->first();
- 
+
+        $itemData = ItemDetails::where('ID',$id)->first();
         $itemData->ItemName =$request->input('food_name');
-    
         $itemData->Category =$request->input('category');
         $itemData->Price =$request->input('price');
         $itemData->Code =$request->input('code');

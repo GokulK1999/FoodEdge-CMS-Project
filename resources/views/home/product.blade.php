@@ -19,8 +19,8 @@
                      <a href="item-details?id={{$key->ID}}" class="option2">
                         View Item Details
                      </a>
-                     <a href="" class="option3">
-                        Buy Now 
+                     <a href="{{ url('delete-item-details/'.$key->ID) }}" class="option3">
+                        Delete Item Product
                      </a>
                   </div>
                </div>

@@ -13,12 +13,13 @@ use App\Http\Controllers\EditItemDetailsController;
 // });
 Route::get('item-details', [ViewItemDetailsController::class,'viewItemDetails']);
 Route::get('edit-item-details', [EditItemDetailsController::class,'editItemDetails']);
+Route::put('update-details/{id}', [EditItemDetailsController::class, 'updateItemDetails'])->name('update-details');
+Route::get('delete-item-details/{id}', [EditItemDetailsController::class,'deleteItemDetails']);
 Route::get('image-form', [ImageUploadController::class, 'index']);
 Route::post('upload', [ImageUploadController::class, 'upload']);
 Route::post('submit-item', [AddItemController::class, 'addItem'])->name('submit.item');
 Route::get('add-item', [AddItemController::class, 'additemform']);
 Route::get('view-menu-page', [HomeController::class, 'viewmenupage']);
-
 
 
 Route::get('/',[HomeController::class,'index']);

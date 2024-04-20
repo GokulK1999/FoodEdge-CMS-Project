@@ -87,7 +87,7 @@
 
 
 
-            <button type="submit">Submit</button>
+            <button type="submit" onclick="window.history.back()">Submit</button>
             <button type="button" onclick="window.history.back()">Cancel</button>
         </form>
     </div>
