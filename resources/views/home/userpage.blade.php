@@ -23,23 +23,13 @@
    </head>
    <body>
       <div class="hero_area">
-         <!-- header section strats -->
-         <!-- end header section -->
-         <!-- slider section -->
-        
-
-      <!-- product section -->
+ 
       @if($route =="Home")
          @include('home.product')
       @elseif($route =="Menu")
        @include('home.view-menu-page')
       @endif
       
-
-     
-      <!-- footer start -->
-
-      <!-- footer end -->
       <div class="cpy_">
          <p class="mx-auto">© 2021 All Rights Reserved By <a href="https://html.design/">Swinburne AI Guys Templates</a><br>
          
