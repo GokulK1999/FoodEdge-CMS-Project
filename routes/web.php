@@ -21,6 +21,26 @@ Route::post('submit-item', [AddItemController::class, 'addItem'])->name('submit.
 Route::get('add-item', [AddItemController::class, 'additemform']);
 Route::get('view-menu-page', [HomeController::class, 'viewmenupage']);
 
+Route::view('/', 'welcome');
+
+Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified','client'])
+    ->name('dashboard');
+
+    Route::view('management', 'management')
+    ->middleware(['auth', 'verified','management'])
+    ->name('management');
+
+    Route::view('operation', 'operation')
+    ->middleware(['auth', 'verified','operation'])
+    ->name('operation');
+
+Route::view('profile', 'profile')
+    ->middleware(['auth'])
+    ->name('profile');
+
+require __DIR__.'/auth.php';
+
 
 Route::get('/',[HomeController::class,'index']);
 
