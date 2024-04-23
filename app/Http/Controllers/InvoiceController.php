@@ -114,11 +114,11 @@ class InvoiceController extends Controller
             'item' => $invoice->item, // Or a description of the purchase
             'totalPaid' => $invoice->totalPaid,
             'description' => $invoice->description, // Optional: Add invoice description
-            //'invoice_id' => $invoice->id, // Include invoice ID if using foreign key
+            'invoice_id' => $invoice->id, // Include invoice ID if using foreign key
             'status' => true,
         ];
 
-        // Create a new receipt record (replace with your logic for saving)
+        // Create a new receipt record (replace with your logic for saving) //
         $receipt = new Receipt();
         $receipt = Receipt::create($receiptData);
 
