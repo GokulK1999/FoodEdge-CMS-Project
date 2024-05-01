@@ -2,7 +2,7 @@
     <div class="container">
         <div class="heading_container heading_center">
             <h2>
-                Our <span>Menu</span>
+                Our Details <span>Menu</span>
             </h2>
         </div>
         <div class="row">
@@ -37,15 +37,16 @@
             </div>
 
             @endforeach
+
         </div>
 
 
         <div class="btn-box">
-            <a href="customerviewallproduct">
-                View All products
-            </a>
-            <a href="view-menu-page">
+            <a href="/catering-booking" class="option1">
                 Check Out
+            </a>
+            <a href="menu">
+                Back to Main Menu
             </a>
         </div>
     </div>

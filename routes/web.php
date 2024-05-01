@@ -22,10 +22,12 @@ Route::post('upload', [ImageUploadController::class, 'upload']);
 Route::post('submit-item', [AddItemController::class, 'addItem'])->name('submit.item');
 Route::get('add-item', [AddItemController::class, 'additemform']);
 Route::get('view-menu-page', [HomeController::class, 'viewmenupage']);
-Route::get('catering-booking-page', [CateringBookingController::class, 'index']);
+Route::get('/catering-booking', [CateringBookingController::class, 'index']);
+Route::get('customerviewallproduct', [HomeController::class, 'customerviewallproduct']);
 
 
-Route::get('/',[HomeController::class,'index']);
+
+Route::get('/menu',[HomeController::class,'index']);
 
 Route::get('/redirect',[HomeController::class,'redirect']);
 

@@ -23,7 +23,7 @@
       @if($route =="Home")
       @include('home.customerproduct')
       @elseif($route =="Menu")
-      @include('home.view-menu-page')
+      @include('home.customerviewallproduct')
       @endif
 
 

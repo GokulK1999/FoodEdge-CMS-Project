@@ -9,15 +9,8 @@ class CateringBookingController extends Controller
     public function index()
     {
 
-        //$itemData = ItemDetails::limit(9)->get();
-        $path = storage_path('public\images');
-
-        $data = [
-            //"itemData" => $itemData,
-            "Path" => $path,
-            "route"=>"Home",
-        ];
-        return view('home.userpage', $data);
+       
+        return view('booking.index');
     }
     
     public function addbooking(){
