@@ -15,6 +15,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('receipt.index') }}"> Receipt</a>
                 </li>
+            @if(Auth::check() && (Auth::user()->role == 1 || Auth::user()->role == 2))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('customer.index') }}">Customer</a>
+                </li>
+            @elseif(Auth::check() && Auth::user()->role == 3)
+                @if(Auth::user()->customer) <!-- Check if the user has a customer profile -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('customer.show', Auth::user()->customer->id) }}">View Customer Profile</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <form action="{{ route('customer.create') }}" method="GET">
+                            @csrf
+                            <button type="submit" class="btn btn-primary ms-5 me-5">Create Customer Profile</button>
+                        </form>
+                    </li>
+                @endif
+            @endif
             </ul>
         </div>
     </div>
