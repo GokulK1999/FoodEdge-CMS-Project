@@ -12,7 +12,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1800px;
             margin: 20px auto;
             background-color: #fff;
             padding: 20px;
@@ -45,6 +45,26 @@
         .value {
             font-weight: bold;
         }
+        .btn-box {
+        display: flex;
+        justify-content: space-around; /* Evenly space the buttons */
+        margin-top: 20px; /* Add some space between the box and the buttons */
+    }
+
+    /* Styling the buttons */
+    .btn-box a {
+        padding: 10px 20px;
+        background-color: #ffcc00; /* bright color */
+        color: #ffffff; /* white text color */
+        text-decoration: none; /* Remove underline from links */
+        border-radius: 5px; /* Rounded corners */
+        transition: background-color 0.3s; /* Smooth transition on hover */
+    }
+
+    /* Hover effect for buttons */
+    .btn-box a:hover {
+        background-color: #ffa500; /* Darker color on hover */
+    }
     </style>
 </head>
 
@@ -62,11 +82,15 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Catering Booking Name</th>
+                                        <th>Catering Booking ID</th>
+                                        <th>Catering Booking Theme</th>
+                                        <th>Catering Booking Type</th>
+                                        <th>Catering Booking Date</th>
                                         <th>Customer Name</th>
-                                        <th>Booking Price</th> 
-                                        <th>Catering Food Booking List</th> 
+                                        <th>Email</th> 
+                                        <th>Phone Number</th> 
+                                        <th>Food Order </th> 
+                                        <th>Remarks</th> 
                                         <th>Remarks</th> 
                                 </thead>
                                 </thead>
@@ -79,7 +103,16 @@
                 </div>
             </div>
         </div>
+        <div class="btn-box">
+            <a href="customerviewallproduct">
+                View All products
+            </a>
+            <a href="add-booking" class="option1">
+            Add New Item
+         </a>
+        </div>
     </div>
+    
     </body>
 
 </html>
