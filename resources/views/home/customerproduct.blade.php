@@ -41,8 +41,8 @@
             <a href="customerviewallproduct">
                 View All products
             </a>
-            <a href="Catering-Booking">
-                Catering-Booking
+            <a href="add-booking">
+                Add New Booking
             </a>
         </div>
     </div>

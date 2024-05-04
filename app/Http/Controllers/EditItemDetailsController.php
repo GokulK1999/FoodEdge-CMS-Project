@@ -33,14 +33,14 @@ class EditItemDetailsController extends Controller
 
         //ItemDetails::find ($id)->update(["ItemName"=>$request->input('food_name')]);
 
-        return redirect ('/')->with('status',"Product Details update succesfully");
+        return redirect ('/menu')->with('status',"Product Details update succesfully");
 
     }
 
     public function deleteItemDetails($id){
         $itemData = ItemDetails::find ($id);
         $itemData->delete();
-        return redirect ('/')->with('status',"Product has been delete succesfully");
+        return redirect ('/menu')->with('status',"Product has been delete succesfully");
 
     }
 }

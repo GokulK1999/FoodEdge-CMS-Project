@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" ></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"  />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Item</title>
+    <title>Catering Booking Form</title>
     <style>
         body {
             font-family: "Times New Roman", Times, serif;
-            font-size: 14px;
+            font-size: 15px;
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
@@ -64,12 +64,12 @@
 <body>
 
     <div class="container">
-        <h2>Add Item</h2>
+        <h1 style="text-align:center">Catering Booking Form</h1>
         <form action="{{ route('submit.booking') }}" enctype="multipart/form-data" method="post">
             @csrf
 
 
-            <h1>Booking Details: </h1>
+            <h2>Booking Details: </h2>
             <label for="bookingtheme">Catering Booking Theme:</label>
             <select id="bookingtheme" name="bookingtheme" required>
                 <option value="">----------</option>
@@ -90,7 +90,7 @@
             </select>
             <label for="bookingdate">Catering Booking Date:</label>
             <input type="date" id="bookingdate" name="bookingdate" required><br><br><br>
-            <h1>Cilent Details: </h1>
+            <h2>Cilent Details: </h2>
             <label for="customername">Name:</label>
             <input type="text" id="customername" name="customername" required><br><br>
             <label for="customeremail">Email:</label>
@@ -98,13 +98,13 @@
             <label for="phonenumber">Phone Number:</label>
             <input type="tel" id="phonenumber" name="phonenumber" required><br><br>
             <label for="foodorderlist">Food Order List:</label>
-       
-            <select  class="select2" name="foodorderlist[]" id="foodorderlist" multiple>
-                    @foreach($itemlist as $item)
-                    <option value="{{$item->ID}}">{{$item->ItemName}}</option>
-                    @endforeach
+
+            <select class="select2" name="foodorderlist[]" id="foodorderlist" multiple>
+                @foreach($itemlist as $item)
+                <option value="{{$item->ID}}">{{$item->ItemName}}</option>
+                @endforeach
             </select>
-<!--       
+            <!--       
             <textarea id="foodorderlist" name="foodorderlist" rows="4" required></textarea><br><br> --><br><br>
             <label for="status">Status:</label>
             <select id="status" name="status" required>
@@ -114,7 +114,7 @@
                 <option value="Clear">Clear</option>
             </select>
             <br><br>
-           <label       for="remarks">Remarks:</label><br>
+            <label for="remarks">Remarks:</label><br>
             <textarea id="remarks" name="remarks" rows="10" style="width: 50em;" required></textarea><br><br>
             <h3>Booking Confirmation and Terms: </h3>
             <p>I, the undersigned, confirm that the information provided above is accurate, and I agree to the terms and conditions of the catering booking. I understand that a deposit may be required to confirm the booking, and final details will be arranged closer to the event date.</p>
@@ -126,8 +126,9 @@
 
 </body>
 <script>
-$(document).ready(function() {
-    $('.select2').select2();
-});
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
 </script>
+
 </html>

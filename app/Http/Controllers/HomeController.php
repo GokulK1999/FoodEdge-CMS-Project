@@ -24,6 +24,19 @@ class HomeController extends Controller
         ];
         return view('home.userpage', $data);
     }
+    public function customerindex()
+    {
+
+        $itemData = ItemDetails::limit(9)->get();
+        $path = storage_path('public\images');
+
+        $data = [
+            "itemData" => $itemData,
+            "Path" => $path,
+            "route"=>"Home",
+        ];
+        return view('home.customerpage', $data);
+    }
     public function redirect()
     {
         $usertype = Auth::user()->usertype;
@@ -55,7 +68,7 @@ class HomeController extends Controller
             "itemData" => $itemData,
             "route"=>"Menu",
         ];
-        return view('home.userpage', $data);
+        return view('home.customerpage', $data);
     }
 
     

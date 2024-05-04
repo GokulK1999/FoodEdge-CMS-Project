@@ -5,7 +5,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <title>Item Details</title>
+    <title>Catering Booking Details</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -125,8 +125,8 @@
                                             <td class="value">
                                                 
                                      
-                               <a href="{{ url('edit-booking-details/?id='.$key->id) }}"  > <button type="button" class="btn btn-danger" >Edit</button> </a>
-                               <a href="{{ url('delete-booking-details/'.$key->id) }}"  >  <button type="button" >Delete</button> </a>
+                               <a href="{{ url('edit-booking-details/?id='.$key->id) }}"  > <button type="button" class="btn btn-info">Edit</button> </a>
+                               <a href="{{ url('delete-booking-details/'.$key->id) }}"  >  <button type="button"  class="btn btn-danger">Delete</button> </a>
                                             </td>
 
                                         </tr>
@@ -148,8 +148,8 @@
             <a href="add-booking" class="option1">
                 Add New Booking
             </a>
-            <a href="customerviewallproduct">
-                View All products
+            <a href="menu">
+                Check Out
             </a>
         </div>
     </div>

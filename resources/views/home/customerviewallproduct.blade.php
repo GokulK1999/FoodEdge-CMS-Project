@@ -13,9 +13,6 @@
                 <div class="box">
                     <div class="option_container">
                         <div class="options">
-                            <a href="edit-item-details?id={{$key->ID}}" class="option1">
-                                Buy Item
-                            </a>
                             <a href="item-details?id={{$key->ID}}" class="option2">
                                 View Item Details
                             </a>
@@ -42,8 +39,8 @@
 
 
         <div class="btn-box">
-            <a href="/catering-booking" class="option1">
-                Check Out
+            <a href="catering-booking" class="option1">
+                Catering Booking List
             </a>
             <a href="menu">
                 Back to Main Menu

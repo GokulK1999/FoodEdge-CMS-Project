@@ -56,7 +56,8 @@ require __DIR__.'/auth.php';
 
 
 
-Route::get('/menu',[HomeController::class,'index']);
+Route::get('/managementmenu',[HomeController::class,'index']);
+Route::get('/menu',[HomeController::class,'customerindex']);
 
 Route::get('/redirect',[HomeController::class,'redirect']);
 
