@@ -8,6 +8,8 @@ use App\Http\Controllers\AddItemController;
 use App\Http\Controllers\EditItemDetailsController;
 use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\AuthController;
 
 
 Route::view('/', 'welcome');
@@ -49,14 +51,16 @@ Route::get('/menu',[HomeController::class,'index']);
 Route::get('/redirect',[HomeController::class,'redirect']);
 
 
-
+/*
 Route::get('/', function () {
     return view('main');
 });
+*/
 
  
 Route::resource('/receipt', ReceiptController::class);
 
+/*
 Route::get('/register',[AuthController::class, 'register'])->name('register');
 
 Route::post('/register',[AuthController::class, 'registerPost'])->name('register');
@@ -64,6 +68,7 @@ Route::post('/register',[AuthController::class, 'registerPost'])->name('register
 Route::get('/login',[AuthController::class, 'login'])->name('login');
 
 Route::post('/login',[AuthController::class, 'loginPost'])->name('login');
+*/
 
 
 
@@ -76,3 +81,21 @@ Route::put('/invoices/{id}', [InvoiceController::class, 'update'])->name('invoic
 Route::delete('/invoices/{id}', [InvoiceController::class, 'destroy'])->name('invoice.destroy');
 //must define the destroy method here or the button will no work, this is the url link wth function ability
 Route::post('/invoices', [InvoiceController::class, 'store'])->name('invoice.store');
+
+
+Route::get('/feedback/form', function () {
+    return view('feedback_form');
+})->name('feedback.form');
+
+Route::post('/feedback', 'FeedbackController@store')->name('feedback.store');
+
+Route::post('/feedback/show', [FeedbackController::class, 'show'])->name('feedback.show');
+ 
+
+
+
+
+
+
+
+
