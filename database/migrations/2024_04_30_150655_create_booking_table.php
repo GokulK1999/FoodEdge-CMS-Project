@@ -13,17 +13,20 @@ return new class extends Migration
     {
         Schema::create('booking', function (Blueprint $table) {
             $table->id();
-            $table->string('Catering Booking Name');
-            $table->string('Customer Name');
-            $table->string('Price');
-            $table->string('Food Booking List');
-            $table->string('Photo',300);
-        });
-    }
+            $table->string('BookingTheme');
+            $table->string('BookingType');
+            $table->string('BookingDate');
+            $table->string('CustomerName');
+            $table->string('CustomerEmail');
+            $table->string('PhoneNumber');
+            $table->string('FoodOrderList');
+            $table->string('Status');
+            $table->string('Remarks');        
+                 
 
-    /**
-     * Reverse the migrations.
-     */
+        });
+    }   
+  
     public function down(): void
     {
         Schema::dropIfExists('booking');

@@ -39,8 +39,7 @@ class AddCateringBookingController extends Controller
             "FoodOrderList" => $request->foodorderlist,
             "Status" => $request->status,
             "Remarks" => $request->remarks,
-            "CustomerSign" => $request->customersign,
-            "SignDate" => $request->signdate,
+ 
 
         ];
         BookingDetails::insert($bookingData);

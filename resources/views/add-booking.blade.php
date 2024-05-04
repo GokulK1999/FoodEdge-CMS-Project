@@ -7,14 +7,15 @@
     <title>Add Item</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 14px;
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
         }
 
         .container {
-            max-width: 500px;
+            max-width: 1000px;
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
@@ -64,28 +65,49 @@
         <form action="{{ route('submit.booking') }}" enctype="multipart/form-data" method="post">
             @csrf
 
-            <input type="file" name="image" placeholder="Choose image" id="image" required>
-            <img src="" id="preview">
-            <br>
+
+            <h1>Booking Details: </h1>
             <label for="bookingtheme">Catering Booking Theme:</label>
-            <input type="text" id="bookingtheme" name="bookingtheme" required><br><br>
+            <select id="bookingtheme" name="bookingtheme" required>
+                <option value="">----------</option>
+                <option value="Farm-to-Table">Farm-to-Table</option>
+                <option value="Vintage Diner">Vintage Diner</option>
+                <option value="Asian Fusion">Asian Fusion</option>
+                <option value="Garden Café">Garden Café</option>
+                <option value="Sci-Fi Diner">Sci-Fi Diner</option>
+                <option value="Tropical Paradise">Tropical Paradise</option>
+                <option value="Speakeasy">Speakeasy</option>
+            </select>
             <label for="bookingtype">Catering Booking Type:</label>
-            <input type="text" id="bookingtype" name="bookingtype" required><br><br>
+            <select id="bookingtype" name="bookingtype" required>
+                <option value="">----------</option>
+                <option value="Corporate Event">Corporate Event</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Birthday Party">Birthday Party</option>
+            </select>
             <label for="bookingdate">Catering Booking Date:</label>
-            <input type="text" id="bookingdate" name="bookingdate" required><br><br>
-            <label for="customername">Customer Name:</label>
+            <input type="date" id="bookingdate" name="bookingdate" required><br><br><br>
+            <h1>Cilent Details: </h1>
+            <label for="customername">Name:</label>
             <input type="text" id="customername" name="customername" required><br><br>
-            <label for="customeremail">Customer Email:</label>
-            <input type="text" id="customeremail" name="customeremail" required><br><br>
+            <label for="customeremail">Email:</label>
+            <input type="email" id="customeremail" name="customeremail" required><br><br>
             <label for="phonenumber">Phone Number:</label>
-            <input type="text" id="phonenumber" name="phonenumber" required><br><br>
+            <input type="tel" id="phonenumber" name="phonenumber" required><br><br>
             <label for="foodorderlist">Food Order List:</label>
-            <input type="text" id="foodorderlist" name="foodorderlist" required><br><br>
+            <textarea id="foodorderlist" name="foodorderlist" rows="4" required></textarea><br><br>
             <label for="status">Status:</label>
-            <input type="text" id="status" name="status" required><br><br>
-            <label for="remarks">Remarks:</label>
-            <input type="text" id="remarks" name="remarks" required><br><br>
-            <h1>Booking Confirmation and Terms: I, the undersigned, confirm that the information provided above is accurate, and I agree to the terms and conditions of the catering booking. I understand that a deposit may be required to confirm the booking, and final details will be arranged closer to the event date.</h1>
+            <select id="status" name="status" required>
+                <option value="">----------</option>
+                <option value="Pending">Pending</option>
+                <option value="Approved">Approved</option>
+                <option value="Clear">Clear</option>
+            </select>
+            <br><br>
+            <label for="remarks">Remarks:</label><br>
+            <textarea id="remarks" name="remarks" rows="10" style="width: 50em;" required></textarea><br><br>
+            <h3>Booking Confirmation and Terms: </h3>
+            <p>I, the undersigned, confirm that the information provided above is accurate, and I agree to the terms and conditions of the catering booking. I understand that a deposit may be required to confirm the booking, and final details will be arranged closer to the event date.</p>
             <!-- <label for="category">Category:</label>
                 <select id="category" name="category" required>
                 <option value="Main Course">Main Course</option>
@@ -93,12 +115,8 @@
                 <option value="Dessert">Dessert</option>
                 <option value="Beverage">Beverage</option>
             Add more options as needed 
-            </select><br><br>  -->
+            </select> --><br><br><br>
 
-            <label for="customersign">Customer Sign:</label>
-            <input type="number" id="customersign" name="customersign" required><br><br>
-            <label for="signdate">Sign Date:</label>
-            <input type="number" id="signdate" name="signdate" required><br><br>
 
 
 
@@ -108,28 +126,5 @@
     </div>
 
 </body>
-
-<script>
-    var fileTag = document.getElementById("image");
-    var preview = document.getElementById("preview");
-
-    fileTag.addEventListener("change", function() {
-        changeImage(this);
-    });
-
-    function changeImage(input) {
-        var reader;
-
-        if (input.files && input.files[0]) {
-            reader = new FileReader();
-
-            reader.onload = function(e) {
-                preview.setAttribute('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>
 
 </html>

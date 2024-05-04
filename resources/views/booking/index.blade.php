@@ -45,26 +45,35 @@
         .value {
             font-weight: bold;
         }
+
         .btn-box {
-        display: flex;
-        justify-content: space-around; /* Evenly space the buttons */
-        margin-top: 20px; /* Add some space between the box and the buttons */
-    }
+            display: flex;
+            justify-content: space-around;
+            /* Evenly space the buttons */
+            margin-top: 20px;
+            /* Add some space between the box and the buttons */
+        }
 
-    /* Styling the buttons */
-    .btn-box a {
-        padding: 10px 20px;
-        background-color: #ffcc00; /* bright color */
-        color: #ffffff; /* white text color */
-        text-decoration: none; /* Remove underline from links */
-        border-radius: 5px; /* Rounded corners */
-        transition: background-color 0.3s; /* Smooth transition on hover */
-    }
+        /* Styling the buttons */
+        .btn-box a {
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            /* bright color */
+            color: #ffffff;
+            /* white text color */
+            text-decoration: none;
+            /* Remove underline from links */
+            border-radius: 5px;
+            /* Rounded corners */
+            transition: background-color 0.3s;
+            /* Smooth transition on hover */
+        }
 
-    /* Hover effect for buttons */
-    .btn-box a:hover {
-        background-color: #ffa500; /* Darker color on hover */
-    }
+        /* Hover effect for buttons */
+        .btn-box a:hover {
+            background-color: #ffa500;
+            /* Darker color on hover */
+        }
     </style>
 </head>
 
@@ -73,11 +82,13 @@
         <div class="row">
             <div class="col-12" style="padding:20px;">
                 <div class="card">
-                    <div class="card-header"><h1>Catering Booking List</h1></div>
+                    <div class="card-header">
+                        <h1>Catering Booking List</h1>
+                    </div>
                     <div class="card-body">
-                    
-                        <br/>
-                        <br/>
+
+                        <br />
+                        <br />
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -87,15 +98,15 @@
                                         <th>Catering Booking Type</th>
                                         <th>Catering Booking Date</th>
                                         <th>Customer Name</th>
-                                        <th>Email</th> 
-                                        <th>Phone Number</th> 
-                                        <th>Food Order </th> 
-                                        <th>Remarks</th> 
-                                        <th>Remarks</th> 
+                                        <th>Email</th>
+                                        <th>Phone Number</th>
+                                        <th>Food Order </th>
+                                        <th>Remarks</th>
+                                        <th>Actions</th>
                                 </thead>
                                 </thead>
                                 <tbody>
-                               
+
                                 </tbody>
                             </table>
                         </div>
@@ -104,15 +115,15 @@
             </div>
         </div>
         <div class="btn-box">
+            <a href="add-booking" class="option1">
+                Add New Booking
+            </a>
             <a href="customerviewallproduct">
                 View All products
             </a>
-            <a href="add-booking" class="option1">
-            Add New Item
-         </a>
         </div>
     </div>
-    
-    </body>
+
+</body>
 
 </html>
