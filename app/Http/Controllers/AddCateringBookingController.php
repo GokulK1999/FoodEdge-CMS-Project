@@ -4,30 +4,47 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\BookingDetails;
+use App\Models\ItemDetails;
 
 class AddCateringBookingController extends Controller
 {
     public function addbookingform()
     {
-        return view('add-booking');
+
+        $item= ItemDetails::All();
+     
+        $data = [
+            "itemlist" => $item,
+        ];
+     
+        return view('add-booking', $data);
     }
 
     public function addBooking(Request $request)
     {
 
+
+
+
         // Validate the form data
         $validatedData = $request->validate([
-            'food_name' => 'required|string|max:255',
-            'code' => 'required|string|max:50',
-            'category' => 'required|string|in:Main Course,Appetizer,Dessert,Beverage', // Add more categories if needed
-            'price' => 'required|numeric|min:0',
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'bookingtheme' => 'required|string|max:255',
+            'bookingtype' => 'required|string|max:50',
+            'bookingdate' => 'required|date',
+            'customername' => 'required|string|max:50',
+            'customeremail' => 'required|string|max:50',
+            'phonenumber' => 'required|string|max:50',
+            'foodorderlist' => 'required|array|min:1',
+            'status' => 'required|string|in:Approved,Pending,Clear',
+            'remarks' =>  'required|string|max:50',
         ]);
 
-
-        //upload image in public storage folder
-        $path = $request->file('image')->store('public\images');
-        $pathname = pathinfo($path)['basename'];
+        $itemname="";
+        $itemlist= ItemDetails::whereIn('ID',$request->foodorderlist)->get();
+        foreach($itemlist as $item){
+            $itemname.= $item->ItemName."\n";
+           }
+           $itemname=rtrim($itemname, "\n");
 
         $bookingData = [
             "BookingTheme" => $request->bookingtheme,
@@ -36,18 +53,15 @@ class AddCateringBookingController extends Controller
             "CustomerName" => $request->customername,
             "CustomerEmail" => $request->customeremail,
             "PhoneNumber" => $request->phonenumber,
-            "FoodOrderList" => $request->foodorderlist,
+            "FoodOrderList" =>  $itemname,
             "Status" => $request->status,
             "Remarks" => $request->remarks,
- 
+
 
         ];
-        BookingDetails::insert($bookingData);
+        BookingDetails::create($bookingData);
 
-      
-        return redirect ('/')->with('status',"Item added successfully!");
+
+       return redirect('/catering-booking')->with('status', "Item added successfully!");
     }
-
-
-
 }

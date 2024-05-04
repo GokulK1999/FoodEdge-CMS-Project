@@ -85,7 +85,7 @@
             </select><br><br>
 
             <label for="price">Price:</label>
-            <input type="number" id="price" value="{{ $key->Price}}" name="price" required><br><br>
+            <input type="number" id="price" value="{{ $key->Price}}" name="price" min="1" required><br><br>
 
 
 

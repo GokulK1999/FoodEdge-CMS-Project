@@ -21,9 +21,9 @@
    <div class="hero_area">
 
       @if($route =="Home")
-      @include('home.customerproduct')
+      @include('home.product')
       @elseif($route =="Menu")
-      @include('home.customerviewallproduct')
+      @include('home.view-menu-page')
       @endif
 
 

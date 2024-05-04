@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('booking', function (Blueprint $table) {
+        Schema::create('bookingdetails', function (Blueprint $table) {
             $table->id();
             $table->string('BookingTheme');
             $table->string('BookingType');

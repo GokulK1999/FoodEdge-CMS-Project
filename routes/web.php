@@ -28,6 +28,11 @@ Route::get('/catering-booking', [CateringBookingController::class, 'index']);
 Route::get('customerviewallproduct', [HomeController::class, 'customerviewallproduct']);
 Route::get('add-booking', [AddCateringBookingController::class, 'addbookingform']);
 Route::post('submit-booking', [AddCateringBookingController::class, 'addBooking'])->name('submit.booking');
+Route::get('edit-booking-details', [CateringBookingController::class,'editBooking']);
+Route::put('update-booking/{id}', [CateringBookingController::class, 'updateBooking'])->name('update-booking');
+Route::get('delete-booking-details/{id}', [CateringBookingController::class,'deleteBooking']);
+
+
 
 
 

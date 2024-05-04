@@ -2,6 +2,9 @@
 <html>
 
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
     <title>Item Details</title>
     <style>
         body {
@@ -87,29 +90,56 @@
                     </div>
                     <div class="card-body">
 
+
                         <br />
                         <br />
                         <div class="table-responsive">
                             <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Catering Booking ID</th>
-                                        <th>Catering Booking Theme</th>
-                                        <th>Catering Booking Type</th>
-                                        <th>Catering Booking Date</th>
-                                        <th>Customer Name</th>
-                                        <th>Email</th>
-                                        <th>Phone Number</th>
-                                        <th>Food Order </th>
-                                        <th>Remarks</th>
-                                        <th>Actions</th>
-                                </thead>
-                                </thead>
                                 <tbody>
+                                    <thead>               
+                                    <tr>
+                                            <th>Catering Booking ID</th>
+                                            <th>Catering Booking Theme</th>
+                                            <th>Catering Booking Type</th>
+                                            <th>Catering Booking Date</th>
+                                            <th>Customer Name</th>
+                                            <th>Email</th>
+                                            <th>Phone Number</th>
+                                            <th>Food Order</th>
+                                            <th>Remarks</th>
+                                            <th>Actions</th>
+                                        </tr>             
+                                        @foreach ($bookingData as $key)
+
+                                 
+                                        <tr>
+                                        <td class="value">{{ $key->id }}</td>
+                                            <td class="value">{{ $key->BookingTheme }}</td>
+                                            <td class="value">{{ $key->BookingType }}</td>
+                                            <td class="value">{{ $key->BookingDate }}</td>
+                                            <td class="value">{{ $key->CustomerName }}</td>
+                                            <td class="value">{{ $key->CustomerEmail }}</td>
+                                            <td class="value">{{ $key->PhoneNumber }}</td>
+                                            <td class="value" style="white-space: pre-wrap;">{{ $key->FoodOrderList }}</td>
+                                            <td class="value">{{ $key->Remarks }}</td>
+                                            <td class="value">
+                                                
+                                     
+                               <a href="{{ url('edit-booking-details/?id='.$key->id) }}"  > <button type="button" class="btn btn-danger" >Edit</button> </a>
+                               <a href="{{ url('delete-booking-details/'.$key->id) }}"  >  <button type="button" >Delete</button> </a>
+                                            </td>
+
+                                        </tr>
+                        
+                                        @endforeach
+   
+                                    </thead>
+                                   
 
                                 </tbody>
                             </table>
                         </div>
+
                     </div>
                 </div>
             </div>
