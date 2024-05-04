@@ -32,7 +32,6 @@ class AddItemController extends Controller
         $path = $request->file('image')->store('public\images');
         $pathname = pathinfo($path)['basename'];
 
-
         $itemData = [
             "ItemName" => $request->food_name,
             "Category" => $request->category,

@@ -45,6 +45,18 @@ class HomeController extends Controller
         ];
         return view('home.userpage', $data);
     }
+    public function customerviewallproduct()
+    {
+
+        $itemData = ItemDetails::get();
+       
+
+        $data = [
+            "itemData" => $itemData,
+            "route"=>"Menu",
+        ];
+        return view('home.userpage', $data);
+    }
 
     
     
