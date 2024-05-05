@@ -12,10 +12,6 @@ class CateringBookingController extends Controller
     {
         session_start();
         $bookingData = BookingDetails::get();
-        //$_SESSION['cart']='1';
-      // $_SESSION['cart'].='2';
-   //   session_destroy();
-
         $data = [
             "bookingData" => $bookingData,
         ];
@@ -23,10 +19,18 @@ class CateringBookingController extends Controller
 
        
     }
-
-    public function addbooking()
+    public function customerindex()
     {
+        session_start();
+        $bookingData = BookingDetails::get();
+        $data = [
+            "bookingData" => $bookingData,
+        ];
+        return view('booking.customerindex', $data);
+
+       
     }
+
     public function editBooking()
     {
         $id = $_GET['id'];
@@ -85,5 +89,11 @@ class CateringBookingController extends Controller
         $bookingData = BookingDetails::find ($id);
         $bookingData->delete();
         return redirect ('/catering-booking')->with('status',"Product has been delete succesfully");
+    }
+    public function cancelBooking($id)
+    {
+        $bookingData = BookingDetails::find ($id);
+        $bookingData->delete();
+        return redirect ('/customer-booking')->with('status',"Product has been delete succesfully");
     }
 }
