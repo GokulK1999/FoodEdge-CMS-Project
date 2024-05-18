@@ -11,22 +11,18 @@ class AddCateringBookingController extends Controller
     public function addbookingform()
     {
 
-        $item= ItemDetails::All();
-     
+        $item = ItemDetails::All();
+
         $data = [
             "itemlist" => $item,
         ];
-     
+
         return view('add-booking', $data);
     }
 
     public function addBooking(Request $request)
     {
 
-
-
-
-        // Validate the form data
         $validatedData = $request->validate([
             'bookingtheme' => 'required|string|max:255',
             'bookingtype' => 'required|string|max:50',
@@ -39,12 +35,12 @@ class AddCateringBookingController extends Controller
             'remarks' =>  'required|string|max:50',
         ]);
 
-        $itemname="";
-        $itemlist= ItemDetails::whereIn('ID',$request->foodorderlist)->get();
-        foreach($itemlist as $item){
-            $itemname.= $item->ItemName."\n";
-           }
-           $itemname=rtrim($itemname, "\n");
+        $itemname = "";
+        $itemlist = ItemDetails::whereIn('ID', $request->foodorderlist)->get();
+        foreach ($itemlist as $item) {
+            $itemname .= $item->ItemName . "\n";
+        }
+        $itemname = rtrim($itemname, "\n");
 
         $bookingData = [
             "BookingTheme" => $request->bookingtheme,
@@ -62,6 +58,6 @@ class AddCateringBookingController extends Controller
         BookingDetails::create($bookingData);
 
 
-       return redirect('/catering-booking')->with('status', "Item added successfully!");
+        return redirect('/catering-booking')->with('status', "Item added successfully!");
     }
 }

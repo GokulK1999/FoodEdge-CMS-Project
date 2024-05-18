@@ -111,7 +111,6 @@
                                         </tr>             
                                         @foreach ($bookingData as $key)
 
-                                 
                                         <tr>
                                         <td class="value">{{ $key->id }}</td>
                                             <td class="value">{{ $key->BookingTheme }}</td>
@@ -122,9 +121,7 @@
                                             <td class="value">{{ $key->PhoneNumber }}</td>
                                             <td class="value" style="white-space: pre-wrap;">{{ $key->FoodOrderList }}</td>
                                             <td class="value">{{ $key->Remarks }}</td>
-                                            <td class="value">
-                                                
-                                     
+                                            <td class="value">                        
                                <a href="{{ url('edit-booking-details/?id='.$key->id) }}"  > <button type="button" class="btn btn-info">Edit</button> </a>
                                <a href="{{ url('delete-booking-details/'.$key->id) }}"  >  <button type="button"  class="btn btn-danger">Delete</button> </a>
                                             </td>
