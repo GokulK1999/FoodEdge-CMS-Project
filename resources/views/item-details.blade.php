@@ -60,7 +60,6 @@
                     <div class="img-box">
                         <img src="storage/images/{{$key->Photo}}" alt="">
                     </div>
-
                 </td>
             </tr>
             <tr>

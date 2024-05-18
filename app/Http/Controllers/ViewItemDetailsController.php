@@ -7,15 +7,15 @@ use App\Models\ItemDetails;
 
 class ViewItemDetailsController extends Controller
 {
-    public function viewItemDetails()
-    {
+  public function viewItemDetails()
+  {
 
-      $id=$_GET['id'];
+    $id = $_GET['id'];
 
-        $itemData = ItemDetails::where('ID',$id)->get();
-      
-     $data=["itemData"=>$itemData];
-  
-        return view('item-details',$data);
-    }
+    $itemData = ItemDetails::where('ID', $id)->get();
+
+    $data = ["itemData" => $itemData];
+
+    return view('item-details', $data);
+  }
 }

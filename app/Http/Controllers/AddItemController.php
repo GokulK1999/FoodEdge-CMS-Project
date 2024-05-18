@@ -44,6 +44,6 @@ class AddItemController extends Controller
 
         // Redirect back with success message
        // return redirect()->back()->with('success', 'Item added successfully!');
-        return redirect ('/')->with('status',"Item added successfully!");
+        return redirect ('/managementmenu')->with('status',"Item added successfully!");
     }
 }

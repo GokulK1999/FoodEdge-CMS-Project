@@ -31,9 +31,9 @@
       @endif
       
       <div class="cpy_">
-         <p class="mx-auto">© 2021 All Rights Reserved By <a href="https://html.design/">Swinburne AI Guys Templates</a><br>
+         <p class="mx-auto">© 2021 All Rights Reserved By <a href="https://html.design/">Swinburne Guys Templates</a><br>
 
-            Distributed By <a href="https://themewagon.com/" target="_blank">Chatai</a>
+            Distributed By <a href="https://themewagon.com/" target="_blank">Butterfly</a>
 
          </p>
       </div>
