@@ -39,7 +39,6 @@ class CateringBookingController extends Controller
 
         $data = ["bookingData" => $bookingData,
         "itemlist" => $item,];
-
         return view('edit-booking-details', $data);
     }
 
@@ -76,12 +75,7 @@ class CateringBookingController extends Controller
         $bookingData->Status =$request->input('status');
         $bookingData->Remarks =$request->input('remarks');
         $bookingData->save();
-
-        //ItemDetails::find ($id)->update(["ItemName"=>$request->input('food_name')]);
-
         return redirect ('/catering-booking')->with('status',"Product Details update succesfully");
-
-    
     }
 
      public function deleteBooking($id)

@@ -22,7 +22,6 @@ class AddCateringBookingController extends Controller
 
     public function addBooking(Request $request)
     {
-
         $validatedData = $request->validate([
             'bookingtheme' => 'required|string|max:255',
             'bookingtype' => 'required|string|max:50',
@@ -34,14 +33,12 @@ class AddCateringBookingController extends Controller
             'status' => 'required|string|in:Approved,Pending,Clear',
             'remarks' =>  'required|string|max:50',
         ]);
-
         $itemname = "";
         $itemlist = ItemDetails::whereIn('ID', $request->foodorderlist)->get();
         foreach ($itemlist as $item) {
             $itemname .= $item->ItemName . "\n";
         }
         $itemname = rtrim($itemname, "\n");
-
         $bookingData = [
             "BookingTheme" => $request->bookingtheme,
             "BookingType" => $request->bookingtype,
@@ -52,12 +49,8 @@ class AddCateringBookingController extends Controller
             "FoodOrderList" =>  $itemname,
             "Status" => $request->status,
             "Remarks" => $request->remarks,
-
-
         ];
         BookingDetails::create($bookingData);
-
-
-        return redirect('/catering-booking')->with('status', "Item added successfully!");
+        return redirect('/customer-booking')->with('status', "Item added successfully!");
     }
 }
