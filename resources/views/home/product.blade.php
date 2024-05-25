@@ -6,9 +6,9 @@
          </h2>
       </div>
       <div class="row">
-         
+
          @foreach ($itemData as $key)
-     
+
          <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="box">
                <div class="option_container">
@@ -19,14 +19,14 @@
                      <a href="item-details?id={{$key->ID}}" class="option2">
                         View Item Details
                      </a>
-                     <a href="" class="option3">
-                        Buy Now 
+                     <a href="{{ url('delete-item-details/'.$key->ID) }}" class="option3">
+                        Delete Item Product
                      </a>
                   </div>
                </div>
 
                <div class="img-box">
-               <img src="storage/images/{{$key->Photo}}" alt="">
+                  <img src="storage/images/{{$key->Photo}}" alt="">
                </div>
                <div class="detail-box">
                   <h5>
@@ -38,27 +38,16 @@
                </div>
             </div>
          </div>
-    
-      @endforeach
-      <div class="col-sm-6 col-md-4 col-lg-4">
-            <div class="box">
 
-               <div class="img-box">
-                  <img src="images/shinchan.png" alt="">
-               </div>
-               <div class="detail-box">
-               <a href="add-item" class="option1">
-                        Add New Item
-                     </a>
-               </div>
+         @endforeach
 
-
-            </div>
-         </div>
       </div>
 
-      
+
       <div class="btn-box">
+         <a href="add-item" class="option1">
+            Add New Item
+         </a>
          <a href="view-menu-page">
             View All products
          </a>

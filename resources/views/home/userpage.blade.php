@@ -23,37 +23,24 @@
    </head>
    <body>
       <div class="hero_area">
-         <!-- header section strats -->
-         <!-- end header section -->
-         <!-- slider section -->
-        
-
-      <!-- product section -->
+ 
       @if($route =="Home")
-         @include('home.product')
+      @include('home.product')
       @elseif($route =="Menu")
-       @include('home.view-menu-page')
+      @include('home.view-menu-page')
       @endif
       
-
-     
-      <!-- footer start -->
-
-      <!-- footer end -->
       <div class="cpy_">
          <p class="mx-auto">© 2021 All Rights Reserved By <a href="https://html.design/">Swinburne AI Guys Templates</a><br>
-         
+
             Distributed By <a href="https://themewagon.com/" target="_blank">Chatai</a>
-         
+
          </p>
       </div>
-      <!-- jQery -->
       <script src="home/js/jquery-3.4.1.min.js"></script>
-      <!-- popper js -->
       <script src="home/js/popper.min.js"></script>
-      <!-- bootstrap js -->
       <script src="home/js/bootstrap.js"></script>
-      <!-- custom js -->
       <script src="home/js/custom.js"></script>
-   </body>
+</body>
+
 </html>

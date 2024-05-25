@@ -91,7 +91,6 @@
                     <th>Item</th>
                     <th>Total Paid</th>
                     <th>Description</th>
-                    <th>Paid</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -106,7 +105,7 @@
                             <td>{{ $receipt->item }}</td>
                             <td>{{ $receipt->totalPaid }}</td>
                             <td>{{ $receipt->description }}</td>
-                            <td>{{ $receipt->paid ? 'Yes' : 'No' }}</td>
+                            
                             <!-- Actions: Detail, Edit, Delete -->
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">

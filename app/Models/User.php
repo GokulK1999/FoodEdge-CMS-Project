@@ -44,4 +44,15 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    //**this is necessary so we can set the relationship to customer and allow foreign id for customer
+    public function customer()
+    {
+        return $this->hasOne(\App\Models\CustomerModel::class);
+    }
+
+    public function invoices()
+    {
+        return $this->hasMany(InvoiceModel::class);
+    }
 }

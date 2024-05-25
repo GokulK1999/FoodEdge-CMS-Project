@@ -62,6 +62,21 @@
             color: #f39c12;
             font-size: 18px;
         }
+
+        .btn-back {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -86,6 +101,9 @@
         @else
             <p>No feedback submitted yet.</p>
         @endif
+
+        <!-- Button to go back to Management Dashboard -->
+        <a href="{{ route('management') }}" class="btn-back">Go back to Dashboard</a>
     </div>
 </body>
 </html>

@@ -85,13 +85,7 @@
                 <label class="form-label">Description</label>
                 <textarea class="form-control" name="description" placeholder="Description">{{ $receipt->description }}</textarea>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Paid</label>
-                <select class="form-select" name="paid">
-                    <option value="1" @if($receipt->paid) selected @endif>Yes</option>
-                    <option value="0" @if(!$receipt->paid) selected @endif>No</option>
-                </select>
-            </div>
+            
             <div class="mb-3">
                 <button class="btn btn-primary">Update</button>
             </div>

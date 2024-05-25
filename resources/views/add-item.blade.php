@@ -65,7 +65,7 @@
             @csrf
 
             <input type="file" name="image" placeholder="Choose image" id="image" required>
-            <img src="" id="preview">
+            <img src="" id="preview" style="max-width: 200px; max-height: 200px;">
             <br>
             <label for="food_name">Food Name:</label>
             <input type="text" id="food_name" name="food_name" required><br><br>
@@ -87,7 +87,7 @@
 
 
 
-            <button type="submit">Submit</button>
+            <button type="submit" onclick="window.history.back()">Submit</button>
             <button type="button" onclick="window.history.back()">Cancel</button>
         </form>
     </div>

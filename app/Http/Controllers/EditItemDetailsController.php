@@ -23,11 +23,9 @@ class EditItemDetailsController extends Controller
     
 
     public function updateItemDetails(Request $request,$id){
-   
-        $itemData = ItemDetails::find ($id)->first();
- 
+
+        $itemData = ItemDetails::where('ID',$id)->first();
         $itemData->ItemName =$request->input('food_name');
-    
         $itemData->Category =$request->input('category');
         $itemData->Price =$request->input('price');
         $itemData->Code =$request->input('code');
@@ -35,14 +33,14 @@ class EditItemDetailsController extends Controller
 
         //ItemDetails::find ($id)->update(["ItemName"=>$request->input('food_name')]);
 
-        return redirect ('/')->with('status',"Product Details update succesfully");
+        return redirect ('/managementmenu')->with('status',"Product Details update succesfully");
 
     }
 
     public function deleteItemDetails($id){
         $itemData = ItemDetails::find ($id);
         $itemData->delete();
-        return redirect ('/')->with('status',"Product has been delete succesfully");
+        return redirect ('/managementmenu')->with('status',"Product has been delete succesfully");
 
     }
 }

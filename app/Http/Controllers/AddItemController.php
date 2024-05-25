@@ -43,7 +43,6 @@ class AddItemController extends Controller
 
         ItemDetails::insert($itemData);
 
-        // Redirect back with success message
-        return redirect()->back()->with('success', 'Item added successfully!');
+        return redirect('/managementmenu')->with('status', "Item added successfully!");
     }
 }

@@ -21,7 +21,10 @@ return new class extends Migration
             $table->string('totalPaid');
             $table->text('description');
             $table->boolean('status')->default(true); // Adding 'paid' column as boolean
+            $table->unsignedBigInteger('user_id')->unique(); // foreign key, unique
             $table->timestamps();
+            // Foreign key constraint
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
          });
      }
 

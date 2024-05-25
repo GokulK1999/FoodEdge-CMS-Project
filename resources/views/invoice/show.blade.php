@@ -8,6 +8,12 @@
     <div id="invoiceDetails">
         <div class="row">
             <div class="col mb-3">
+                <label class="form-label">Invoice ID</label>
+                <input type="text" name="id" class="form-control" placeholder="id" value="{{ $invoice->id }}" readonly>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
                 <label class="form-label">Name</label>
                 <input type="text" name="name" class="form-control" placeholder="Name" value="{{ $invoice->name }}" readonly>
             </div>
@@ -39,11 +45,25 @@
                 <label class="form-label">Updated At</label>
                 <input type="text" name="updated_at" class="form-control" placeholder="Updated At" value="{{ $invoice->updated_at }}" readonly>
             </div>
+            @if(Auth::check() && (Auth::user()->role == 1 || Auth::user()->role == 2))
+            <div class="col mb-3">
+                <label class="form-label">User ID</label>
+                <input type="text" name="user_id" class="form-control" placeholder="User ID" value="{{ $invoice->user_id }}" readonly>
+            </div>
+            @endif
         </div>
     </div>
 
     <!-- Print button -->
     <button id="printButton" class="btn btn-primary">Print invoice</button>
+
+    <style>
+        #invoiceDetails {
+            padding: 20px;  /* Adjust padding as needed */
+            color: black;
+            /* Add any other styling here */
+        }
+    </style>
 
     <!-- Include html2pdf library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
@@ -57,4 +77,5 @@
             html2pdf().from(invoiceDetails).save();
         });
     </script>
+
 @endsection

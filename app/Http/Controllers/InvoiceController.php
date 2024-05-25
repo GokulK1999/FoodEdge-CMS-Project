@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\InvoiceModel;
 use Illuminate\Http\Request;
 use App\Models\Receipt;
+use Illuminate\Support\Facades\Auth;
 
 class InvoiceController extends Controller
 {
@@ -13,31 +14,36 @@ class InvoiceController extends Controller
     {
 
 
-        $sortBy = $request->get('sort_by', 'totalPaid');  // Default sort by 'id'
-        $sortDirection = $request->get('sort_direction', 'asc');  // Default ascending
+        //$sortBy = $request->get('sort_by', 'totalPaid');  // Default sort by 'id'
+        //$sortDirection = $request->get('sort_direction', 'asc');  // Default ascending
 
-        $invoice = InvoiceModel::orderBy($sortBy, $sortDirection)->paginate(10);  // Paginate for large datasets
+        //$invoice = InvoiceModel::orderBy($sortBy, $sortDirection)->paginate(10);  // Paginate for large datasets
 
-        return view('invoice.index', compact('invoice', 'sortBy', 'sortDirection'));
+        $user = Auth::user();
 
-        //$invoice = InvoiceModel::orderBy('created_at', 'DESC')->get();
+        // Initialize $invoices variable
+        //$invoice = InvoiceModel::all();
 
-        //return view('invoice.index', compact('invoice'));
+
+        if (!$user) {
+            // Redirect to login or handle the error as appropriate
+            return redirect('login')->with('error', 'You must be logged in to view invoices.');
+        }
+
+        // For clients, only show their own data
+        if ($user->role === 3) {
+            $invoice = InvoiceModel::where('user_id', $user->id)->get();
+        }
+
+        // For management roles, show all data
+        if ($user->role === 1) {
+            $sortBy = $request->get('sort_by', 'totalPaid');  // Default sort by 'id'
+            $sortDirection = $request->get('sort_direction', 'asc');  // Default ascending
+            $invoice = InvoiceModel::orderBy($sortBy, $sortDirection)->paginate(10);
+        }
+
+        return view('invoice.index', ['invoice' => $invoice]);
     }
-
-  //  public function store(Request $request)
-  //  {
-  //      Validate the incoming request data
-  //      $validatedData = $request->validate([
-  //          'invoice_number' => 'required|unique:invoices',
-  //          'total_amount' => 'required|numeric',
-  //      ]);
-  //      Create a new Invoice instance with the validated data
-  //      $invoice = InvoiceModel::create($validatedData);
-
-  //      Redirect or return a response as needed
-  //      return redirect()->route('invoices.show', $invoice->id);
-  //  }
 
     public function create()
     {
@@ -114,8 +120,7 @@ class InvoiceController extends Controller
             'item' => $invoice->item, // Or a description of the purchase
             'totalPaid' => $invoice->totalPaid,
             'description' => $invoice->description, // Optional: Add invoice description
-            'invoice_id' => $invoice->id, // Include invoice ID if using foreign key
-            'status' => true,
+            //'invoice_id' => $invoice->id, // Include invoice ID if using foreign key
         ];
 
         // Create a new receipt record (replace with your logic for saving) //
@@ -127,5 +132,3 @@ class InvoiceController extends Controller
 
 
 }
-
-

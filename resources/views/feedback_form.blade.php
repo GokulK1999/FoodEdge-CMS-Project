@@ -73,15 +73,53 @@
         button[type="submit"]:hover {
             background-color: #45a049;
         }
+        .btn-back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
     </style>
+    <script>
+        function validateForm(event) {
+            const ratings = document.getElementsByName('rating');
+            let ratingSelected = false;
+            for (const rating of ratings) {
+                if (rating.checked) {
+                    ratingSelected = true;
+                    break;
+                }
+            }
+            if (!ratingSelected) {
+                alert('Please select a rating before submitting.');
+                event.preventDefault();
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>Leave Your Feedback</h1>
-        <form action="{{ route('feedback.show') }}" method="POST">
+        @if (session()->has('form_success'))
+        <div class="alert alert-success" style="background-color: #d4edda; 
+            color: #155724; border-color: #c3e6cb; padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+            <strong>Thank you for your feedback!</strong>
+        </div>
+        @endif
+
+        <form action="{{ route('feedback.store') }}" method="POST" onsubmit="validateForm(event)">
             @csrf
             <label for="name">Name:</label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="name" id="name">
             <label for="feedback">Feedback:</label>
             <textarea name="feedback" id="feedback" required></textarea>
             <div class="rating">
@@ -98,6 +136,7 @@
             </div>
             <button type="submit">Submit Feedback</button>
         </form>
+        <a href="{{ route('dashboard') }}" class="btn-back">Go back to Dashboard</a>
     </div>
 </body>
 </html>
